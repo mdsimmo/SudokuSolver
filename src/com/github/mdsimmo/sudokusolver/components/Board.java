@@ -97,7 +97,7 @@ public class Board  implements Iterable<Cell> {
         return size;
     }
 
-    public int getSubSize() {
+    public int subSize() {
         return subSize;
     }
 

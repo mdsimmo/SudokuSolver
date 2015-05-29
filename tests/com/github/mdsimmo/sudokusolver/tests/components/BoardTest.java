@@ -12,7 +12,7 @@ public class BoardTest {
     public void testMakeBoard() throws Exception {
         Board board = new Board( 4 );
         assertEquals( 4, board.size() );
-        assertEquals( 2, board.getSubSize() );
+        assertEquals( 2, board.subSize() );
         assertNotNull( board.getCell( 1, 1 ) );
         assertNotNull( board.getCell( 4, 4 ) );
     }
