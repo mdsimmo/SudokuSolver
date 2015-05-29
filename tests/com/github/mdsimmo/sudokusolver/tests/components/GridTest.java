@@ -20,13 +20,13 @@ public class GridTest {
         Cell[] cells = makeCells( 9 );
         Cell theSpecial = new Cell( 9 );
         cells[4] = theSpecial;
-        Grid grid = new Grid( cells );
+        Grid grid = new Grid.Row( cells );
         assertEquals( theSpecial, grid.getCell( 5 ) );
     }
 
     @Test
     public void testGetCell () {
-        Grid grid = new Grid( makeCells( 9 ) );
+        Grid grid = new Grid.Row( makeCells( 9 ) );
         assertNotNull( grid.getCell( 1 ) );
         assertNotNull( grid.getCell( 9 ) );
         try {
@@ -43,12 +43,47 @@ public class GridTest {
 
     @Test
     public void testIterator () {
-        Grid grid = new Grid( makeCells( 9 ) );
+        Grid grid = new Grid.Row( makeCells( 9 ) );
         int i = 0;
         for ( Cell cell : grid ) {
             i++;
             assertNotNull( cell );
         }
         assertEquals( 9, i );
+    }
+
+    @Test
+    public void testSubGrid() {
+        Grid.SubGrid grid = new Grid.SubGrid( makeCells( 9 ) );
+
+        assertEquals( grid.getCell( 1 ), grid.getCell( 1, 1 ) );
+        assertEquals( grid.getCell( 8 ), grid.getCell( 2, 3 ) );
+        assertEquals( grid.getCell( 4 ), grid.getCell( 1, 2 ) );
+        assertEquals( grid.getCell( 9 ), grid.getCell( 3, 3 ) );
+
+        try {
+            grid.getCell( 1, 4 );
+            fail();
+        } catch ( IndexOutOfBoundsException ignored ) {
+        }
+        try {
+            grid.getCell( 2, 0 );
+            fail();
+        } catch ( IndexOutOfBoundsException ignored ) {
+        }
+        try {
+            grid.getCell( 4, 2 );
+            fail();
+        } catch ( IndexOutOfBoundsException ignored ) {
+        }
+    }
+
+    @Test
+    public void testInvalidSize() {
+        try {
+            new Grid.Row( makeCells( 5 ) );
+            fail();
+        } catch ( IllegalArgumentException ignored ) {
+        }
     }
 }

@@ -24,7 +24,9 @@ public class Board  implements Iterable<Cell> {
 
     private final int size, subSize;
     private final Cell[][] cells;
-    private final Grid[] rows, cols, subGrid;
+    private final Grid.Row[] rows;
+    private final Grid.Column[] cols;
+    private final Grid.SubGrid[] subGrid;
 
     /**
      * Constructs a sudoku grid of the default 9x9 grid
@@ -45,15 +47,26 @@ public class Board  implements Iterable<Cell> {
         if ( Math.sqrt( size ) != subSize )
             throw new IllegalArgumentException( "size must be a square. Passed " + size );
         this.size = size;
+
         this.cells = new Cell[size][size];
+        rows = new Grid.Row[size];
+        cols = new Grid.Column[size];
+        subGrid = new Grid.SubGrid[size];
+
+        fillCells();
+        fillRowsCols();
+        fillSubGrids();
+    }
+
+    private void fillCells() {
         for ( int i = 0; i < size; i++ ) {
             for ( int j = 0; j < size; j++ ) {
                 cells[i][j] = new Cell(size);
             }
         }
+    }
 
-        rows = new Grid[size];
-        cols = new Grid[size];
+    private void fillRowsCols() {
         for ( int i = 0; i < size; i++ ) {
             Cell[] rowArray = new Cell[size];
             Cell[] colArray = new Cell[size];
@@ -61,11 +74,12 @@ public class Board  implements Iterable<Cell> {
                 rowArray[j] = cells[j][i];
                 colArray[j] = cells[i][j];
             }
-            rows[i] = new Grid( rowArray );
-            cols[i] = new Grid( colArray );
+            rows[i] = new Grid.Row( rowArray );
+            cols[i] = new Grid.Column( colArray );
         }
+    }
 
-        subGrid = new Grid[size];
+    private void fillSubGrids() {
         for ( int i = 0; i < subSize; i++ ) {
             for ( int j = 0; j < subSize; j++ ) {
                 Cell[] gridCells = new Cell[size];
@@ -74,10 +88,9 @@ public class Board  implements Iterable<Cell> {
                         gridCells[y * subSize + x] = cells[i * subSize + x][j * subSize + y];
                     }
                 }
-                subGrid[j*subSize+i] = new Grid( gridCells );
+                subGrid[j*subSize+i] = new Grid.SubGrid( gridCells );
             }
         }
-
     }
 
     public int size() {
@@ -98,15 +111,15 @@ public class Board  implements Iterable<Cell> {
         return cells[x-1][y-1];
     }
 
-    public Grid getRow( int y ) {
+    public Grid.Row getRow( int y ) {
         return rows[y-1];
     }
 
-    public Grid getColumn( int x ) {
+    public Grid.Column getColumn( int x ) {
         return cols[x-1];
     }
 
-    public Grid getSubGrid( int n ) {
+    public Grid.SubGrid getSubGrid( int n ) {
         return subGrid[n-1];
     }
 
