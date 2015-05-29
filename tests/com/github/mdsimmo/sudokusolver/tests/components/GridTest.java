@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class GridTest {
 
-    private Cell[] makeCells ( int amount ) {
+    public static Cell[] makeCells ( int amount ) {
         Cell[] cells = new Cell[amount];
         for ( int i = 0; i < amount; i++ )
             cells[i] = new Cell( amount );
@@ -32,18 +32,19 @@ public class GridTest {
         try {
             assertNotNull( grid.getCell( 10 ) );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
         try {
             assertNotNull( grid.getCell( 0 ) );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
     }
 
+    @Test
     public void testIterator () {
         Grid grid = new Grid( makeCells( 9 ) );
-        int i = 1;
+        int i = 0;
         for ( Cell cell : grid ) {
             i++;
             assertNotNull( cell );

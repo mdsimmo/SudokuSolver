@@ -9,6 +9,6 @@ public interface Solver {
      * @param board the board to look at
      * @return true if something new was found
      */
-    public boolean apply( Board board );
+    boolean apply( Board board );
 
 }

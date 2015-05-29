@@ -17,7 +17,7 @@ public class CellTests extends TestCase {
         assertFalse( cell.isSolved() );
         try {
             cell.getSolution();
-            fail( "should have thrown an exception" );
+            fail();
         } catch (IllegalStateException e) {
             // valid pass
         }
@@ -39,24 +39,24 @@ public class CellTests extends TestCase {
         cell.setImpossible( 1 );
         cell.setImpossible( 2 );
         try {
-            cell.setImpossible(3);
-            fail( "cell should have solved its self" );
+            cell.setImpossible( 3 );
+            fail();
         } catch ( IllegalStateException e ) {
             // good
         }
-        assertEquals(3, cell.getSolution());
+        assertEquals( 3, cell.getSolution() );
     }
 
     public void testNewKnowledge() {
         Cell cell = new Cell( 3 );
         assertTrue( cell.setImpossible( 1 ) );
         assertTrue( cell.setImpossible( 2 ) );
-        assertFalse(cell.setImpossible(2));
+        assertFalse( cell.setImpossible( 2 ) );
         assertFalse( cell.setSolution( 3 ) );
 
         cell = new Cell( 3 );
         assertTrue( cell.setSolution( 3 ) );
-        assertFalse( cell.setImpossible( 2 ));
+        assertFalse( cell.setImpossible( 2 ) );
     }
 
 

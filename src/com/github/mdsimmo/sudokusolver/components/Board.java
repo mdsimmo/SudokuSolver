@@ -34,8 +34,8 @@ public class Board  implements Iterable<Cell> {
     }
 
     /**
-     * Constructs a sudoku grid. The board will be sizexsize square, thus, each cell will have size options. The normal
-     * sudoku board has a size of 9;
+     * Constructs a sudoku grid. The board will be size x size square, thus, each cell will have size options. The
+     * normal sudoku board has a size of 9;
      * @param size the size of the sudoku board
      */
     public Board( int size ) {

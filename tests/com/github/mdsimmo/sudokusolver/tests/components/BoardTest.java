@@ -11,7 +11,7 @@ public class BoardTest {
     @Test
     public void testMakeBoard() throws Exception {
         Board board = new Board( 4 );
-        assertEquals( 4, board.getSize() );
+        assertEquals( 4, board.size() );
         assertEquals( 2, board.getSubSize() );
         assertNotNull( board.getCell( 1, 1 ) );
         assertNotNull( board.getCell( 4, 4 ) );
@@ -20,14 +20,15 @@ public class BoardTest {
     @Test
     public void testMakeInvalidBoard() {
         try {
-            Board board = new Board( 6 );
+            new Board( 6 );
             fail();
-        } catch ( IllegalArgumentException e ) {
+        } catch ( IllegalArgumentException ignored ) {
         }
         try {
-            Board board = new Board( -9 );
+            new Board( -9 );
             fail();
-        } catch ( IllegalArgumentException e ) {
+        } catch ( IllegalArgumentException ignored ) {
+
         }
     }
 
@@ -37,11 +38,11 @@ public class BoardTest {
         try {
             board.getCell( 0, 0 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {};
+        } catch ( IndexOutOfBoundsException ignored ) {}
         try {
             board.getCell( 10, 10 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {};
+        } catch ( IndexOutOfBoundsException ignored ) {}
         assertNotNull( board.getCell( 1, 1 ));
         assertNotNull( board.getCell( 9, 9 ));
     }
@@ -49,7 +50,7 @@ public class BoardTest {
     @Test
     public void testDefault() throws Exception {
         Board board = new Board();
-        assertEquals( 9, board.getSize() );
+        assertEquals( 9, board.size() );
     }
 
     @Test
@@ -61,12 +62,12 @@ public class BoardTest {
         try {
             board.getColumn( 0 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
         try {
             board.getColumn( 10 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
     }
 
@@ -79,12 +80,12 @@ public class BoardTest {
         try {
             board.getColumn( 0 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
         try {
             board.getColumn( 10 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
     }
 
@@ -102,12 +103,12 @@ public class BoardTest {
         try {
             board.getColumn( 0 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
         try {
             board.getColumn( 10 );
             fail();
-        } catch ( IndexOutOfBoundsException e ) {
+        } catch ( IndexOutOfBoundsException ignored ) {
         }
     }
 

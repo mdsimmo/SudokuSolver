@@ -77,6 +77,7 @@ public class GridEliminatorTest {
         assertTrue( grid.getCell( 2 ).isPossible( 4 ) );
     }
 
+    @Test
     public void testEliminatedAround() {
         Board board = new Board( 4 );
         board.getCell( 3, 3 ).setSolution( 1 );
