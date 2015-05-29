@@ -1,7 +1,5 @@
-package com.github.mdsimmo.sudokusolver.tests.components;
+package com.github.mdsimmo.sudokusolver.components;
 
-import com.github.mdsimmo.sudokusolver.components.Cell;
-import com.github.mdsimmo.sudokusolver.components.Grid;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

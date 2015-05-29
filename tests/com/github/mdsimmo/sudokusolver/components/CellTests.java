@@ -1,6 +1,5 @@
-package com.github.mdsimmo.sudokusolver.tests.components;
+package com.github.mdsimmo.sudokusolver.components;
 
-import com.github.mdsimmo.sudokusolver.components.Cell;
 import junit.framework.TestCase;
 
 public class CellTests extends TestCase {

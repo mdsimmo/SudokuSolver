@@ -1,7 +1,5 @@
-package com.github.mdsimmo.sudokusolver.tests.components;
+package com.github.mdsimmo.sudokusolver.components;
 
-import com.github.mdsimmo.sudokusolver.components.Board;
-import com.github.mdsimmo.sudokusolver.components.Cell;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -113,6 +111,24 @@ public class BoardTest {
     }
 
     @Test
+    public void testGetSquareFromXAndY() {
+        Board board = new Board( 9 );
+        assertEquals( board.getCell( 1, 1 ), board.getSubGrid( 1, 1 ).getCell( 1 ) );
+        assertEquals( board.getCell( 9, 9 ), board.getSubGrid( 3, 3 ).getCell( 9 ) );
+        assertEquals( board.getCell( 4, 4 ), board.getSubGrid( 2, 2 ).getCell( 1 ) );
+        assertEquals( board.getCell( 3, 9 ), board.getSubGrid( 1, 3 ).getCell( 9 ) );
+    }
+
+    @Test
+    public void testGetContainingSquare() {
+        Board board = new Board( 9 );
+        assertEquals( board.getCell( 1, 1 ), board.getSubGridContaining( 1, 1 ).getCell( 1 ) );
+        assertEquals( board.getCell( 9, 9 ), board.getSubGridContaining( 9, 9 ).getCell( 9 ) );
+        assertEquals( board.getCell( 4, 4 ), board.getSubGridContaining( 6, 4 ).getCell( 1 ) );
+        assertEquals( board.getCell( 3, 9 ), board.getSubGridContaining( 3, 8 ).getCell( 9 ) );
+    }
+
+    @Test
     public void testIterator() {
         Board board = new Board( 9 );
         int i = 0;
@@ -122,4 +138,5 @@ public class BoardTest {
         }
         assertEquals( 81, i );
     }
+
 }

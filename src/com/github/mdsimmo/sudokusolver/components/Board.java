@@ -120,7 +120,22 @@ public class Board  implements Iterable<Cell> {
     }
 
     public Grid.SubGrid getSubGrid( int n ) {
+        if ( n <= 0 || n > size )
+            throw new IndexOutOfBoundsException( "n cannot be <= 0 or > size. Passed " + n );
         return subGrid[n-1];
+    }
+
+    public Grid.SubGrid getSubGrid( int x, int y ) {
+        if ( x <= 0 || x > subSize || y <= 0 || y > subSize )
+            throw new IndexOutOfBoundsException( "x and y must be > 0 and <= subSize. Passed x=" + x +", y=" + y );
+        int n = (y-1)*subSize + x;
+        return getSubGrid( n );
+    }
+
+    public Grid.SubGrid getSubGridContaining( int x, int y ) {
+        if ( x <= 0 || x > size || y <= 0 || y > size )
+            throw new IndexOutOfBoundsException( "x and y must be > 0 and <= size. Passed x=" + x +", y=" + y );
+        return getSubGrid( (x-1)/subSize+1, (y-1)/subSize+1 );
     }
 
     @Override

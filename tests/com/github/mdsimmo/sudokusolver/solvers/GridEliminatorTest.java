@@ -1,9 +1,7 @@
-package com.github.mdsimmo.sudokusolver.tests.solvers;
+package com.github.mdsimmo.sudokusolver.solvers;
 
 import com.github.mdsimmo.sudokusolver.components.Board;
 import com.github.mdsimmo.sudokusolver.components.Grid;
-import com.github.mdsimmo.sudokusolver.solvers.GridEliminator;
-import com.github.mdsimmo.sudokusolver.solvers.Solver;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

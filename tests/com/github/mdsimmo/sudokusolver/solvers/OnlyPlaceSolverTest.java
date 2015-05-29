@@ -1,11 +1,9 @@
-package com.github.mdsimmo.sudokusolver.tests.solvers;
+package com.github.mdsimmo.sudokusolver.solvers;
 
 import com.github.mdsimmo.sudokusolver.components.Board;
 import com.github.mdsimmo.sudokusolver.components.Cell;
 import com.github.mdsimmo.sudokusolver.components.Grid;
-import com.github.mdsimmo.sudokusolver.solvers.OnlyPlaceSolver;
-import com.github.mdsimmo.sudokusolver.solvers.Solver;
-import com.github.mdsimmo.sudokusolver.tests.components.GridTest;
+import com.github.mdsimmo.sudokusolver.components.GridTest;
 import junit.framework.TestCase;
 
 public class OnlyPlaceSolverTest extends TestCase {
@@ -15,7 +13,7 @@ public class OnlyPlaceSolverTest extends TestCase {
         for ( int i = 1; i < 4; i++ )
             cells[i].setImpossible( 1 );
         // cells[0] is now only possible place for a 1
-        Grid grid = new Grid( cells );
+        Grid grid = new Grid.Row( cells );
         OnlyPlaceSolver solver = new OnlyPlaceSolver();
         assertTrue( solver.apply( grid ) );
         assertEquals( 1, cells[0].getSolution() );
