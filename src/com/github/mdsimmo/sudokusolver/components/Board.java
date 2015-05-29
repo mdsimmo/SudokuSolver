@@ -80,7 +80,7 @@ public class Board  implements Iterable<Cell> {
 
     }
 
-    public int getSize() {
+    public int size() {
         return size;
     }
 

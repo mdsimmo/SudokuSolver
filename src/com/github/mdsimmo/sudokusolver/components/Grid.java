@@ -33,6 +33,10 @@ public class Grid implements Iterable<Cell> {
         }
     }
 
+    public int size() {
+        return cell.length;
+    }
+
     public Cell getCell( int n ) {
         return cell[n-1];
     }
