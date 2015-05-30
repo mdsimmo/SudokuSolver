@@ -109,4 +109,11 @@ public class Cell {
             throw new IllegalArgumentException( "value cannot be <= 0 or > " + maxValue + ". Passed " + value );
     }
 
+    @Override
+    public String toString() {
+        if ( isSolved() )
+            return " " + solution + " ";
+        else
+            return " - ";
+    }
 }

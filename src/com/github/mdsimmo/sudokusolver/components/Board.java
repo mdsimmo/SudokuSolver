@@ -157,10 +157,7 @@ public class Board  implements Iterable<Cell> {
                 if ( i % subSize == 1 )
                     System.out.print( '|' );
                 Cell cell = getCell( i, j );
-                if ( cell.isSolved() )
-                    System.out.print( " " + cell.getSolution() + " " );
-                else
-                    System.out.print( " - " );
+                System.out.print( cell.toString() );
             }
             System.out.println( '|' );
         }
