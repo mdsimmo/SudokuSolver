@@ -143,11 +143,16 @@ public class Board  implements Iterable<Cell> {
         return new BoardIterator();
     }
 
-    public void print() {
+    public void print( boolean verbose ) {
         String divide = "+";
         for ( int i = 0; i < subSize; i++ ) {
-            for ( int j = 0; j < subSize; j++ )
-                divide += "---";
+            for ( int j = 0; j < subSize; j++ ) {
+                if ( verbose ) {
+                    divide += "-----------";
+                } else {
+                    divide += "---";
+                }
+            }
             divide += '+';
         }
         for ( int j = 1; j <= size; j++ ) {
@@ -157,7 +162,10 @@ public class Board  implements Iterable<Cell> {
                 if ( i % subSize == 1 )
                     System.out.print( '|' );
                 Cell cell = getCell( i, j );
-                System.out.print( cell.toString() );
+                if ( verbose )
+                    System.out.print( cell.toStringVerbose() );
+                else
+                    System.out.print( cell.toString() );
             }
             System.out.println( '|' );
         }

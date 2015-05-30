@@ -9,11 +9,11 @@ public class Main {
 
         Board board = SudokuGrids.load( SudokuGrids.grid1 );
 
-        board.print();
+        board.print( false );
 
         new SolverExecutor( board ).solve();
 
-        board.print();
+        board.print( true );
 
     }
 

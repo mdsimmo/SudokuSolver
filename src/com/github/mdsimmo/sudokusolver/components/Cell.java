@@ -116,4 +116,14 @@ public class Cell {
         else
             return " - ";
     }
+
+    public String toStringVerbose() {
+        StringBuilder answer = new StringBuilder( 11 );
+        answer.append( ' ' );
+        for ( int i = 1; i <= possible.length; i++ ) {
+            answer.append( isPossible( i ) ?  Integer.toString( i ) : "." );
+        }
+        answer.append( ' ' );
+        return answer.toString();
+    }
 }
