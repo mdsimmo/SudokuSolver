@@ -7,7 +7,7 @@ public class Main {
 
     public static void main( String[] args ) {
 
-        Board board = SudokuGrids.load( SudokuGrids.grid1 );
+        Board board = SudokuGrids.load( SudokuGrids.hard1 );
 
         board.print( false );
 
