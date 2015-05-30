@@ -17,7 +17,7 @@ public class OnlyPlaceSolver implements Solver {
         return foundInfo;
     }
 
-    public boolean apply( Grid grid ) {
+    boolean apply( Grid grid ) {
         final int size = grid.size();
         boolean foundInfo = false;
         for ( int n = 1; n <= size; n++ )
@@ -25,7 +25,7 @@ public class OnlyPlaceSolver implements Solver {
         return foundInfo;
     }
 
-    public boolean apply( Grid grid, int number ) {
+    boolean apply( Grid grid, int number ) {
         final int size = grid.size();
         int found = -1;
         for ( int i = 1; i <= size; i++ ) {

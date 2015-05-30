@@ -15,7 +15,7 @@ public class LineEliminator implements Solver {
         return foundInfo;
     }
 
-    public boolean apply( Board board, Grid.SubGrid grid, final int x, final int y ) {
+    boolean apply( Board board, Grid.SubGrid grid, final int x, final int y ) {
         final int size = grid.size();
         final int subSize = grid.subSize();
         boolean infoFound = false;
@@ -30,7 +30,7 @@ public class LineEliminator implements Solver {
         return infoFound;
     }
 
-    public boolean setColumnImpossible( Board board, Grid.SubGrid origin, int x, int number ) {
+    boolean setColumnImpossible( Board board, Grid.SubGrid origin, int x, int number ) {
         int size = board.size();
         boolean infoFound = false;
         for ( int i = 1; i <= size; i++ ) {
@@ -41,7 +41,7 @@ public class LineEliminator implements Solver {
         return infoFound;
     }
 
-    public boolean setRowImpossible( Board board, Grid.SubGrid origin, int y, int number ) {
+    boolean setRowImpossible( Board board, Grid.SubGrid origin, int y, int number ) {
         int size = board.size();
         boolean infoFound = false;
         for ( int i = 1; i <= size; i++ ) {
@@ -52,7 +52,7 @@ public class LineEliminator implements Solver {
         return infoFound;
     }
 
-    public boolean onlyInColumn( Grid.SubGrid grid, int x, int number ) {
+    boolean onlyInColumn( Grid.SubGrid grid, int x, int number ) {
         final int subSize = grid.subSize();
         OuterLoop:
         for ( int i = 1; i <= subSize; i++ ) {
@@ -76,7 +76,7 @@ public class LineEliminator implements Solver {
         return true;
     }
 
-    public boolean onlyInRow( Grid.SubGrid grid, int y, int number ) {
+    boolean onlyInRow( Grid.SubGrid grid, int y, int number ) {
         final int subSize = grid.subSize();
         OuterLoop:
         for ( int i = 1; i <= subSize; i++ ) {

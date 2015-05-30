@@ -18,7 +18,7 @@ public class GridEliminator implements Solver {
         return infoFound;
     }
 
-    public boolean apply( Grid grid ) {
+    boolean apply( Grid grid ) {
         final int size = grid.size();
         boolean foundInfo = false;
         for ( int i = 1; i <= size; i++ ) {
@@ -29,7 +29,7 @@ public class GridEliminator implements Solver {
         return foundInfo;
     }
 
-    public boolean eliminateAllFrom( Grid grid, int number ) {
+    boolean eliminateAllFrom( Grid grid, int number ) {
         final int size = grid.size();
         boolean foundInfo = false;
         for ( int i = 1; i <= size; i++ ) {
