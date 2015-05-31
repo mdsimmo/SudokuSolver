@@ -5,7 +5,8 @@ import com.github.mdsimmo.sudokusolver.components.Board;
 public class SolverExecutor {
 
     private static final Solver[] solvers = new Solver[] {
-        new GridEliminator(), new OnlyPlaceSolver(), new LineEliminator(), new OnlyGridInLine()
+        new GridEliminator(), new OnlyPlaceSolver(), new LineEliminator(),
+            new OnlyGridInLine(), new GroupFinder()
     };
 
     private final Board board;
