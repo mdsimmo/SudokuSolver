@@ -7,8 +7,9 @@ public class Main {
 
     public static void main( String[] args ) {
 
-        Board board = SudokuGrids.load( SudokuGrids.hard1 );
+        Board board = SudokuGrids.load( SudokuGrids.fourStars1 );
 
+        //board.getCell( 2, 2 ).setSolution( 1 );
         board.print( false );
 
         new SolverExecutor( board ).solve();
