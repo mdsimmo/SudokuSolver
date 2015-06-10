@@ -1,8 +1,10 @@
 # SudokuSolver
 
-The sudoku solver aims to be able to solve a sudoku.
+The Sudoku solver aims to be able to solve most sudokus. Currently, it is programmed with a set of basic-medium complexity rules. It can solve reasonbly difficualt sudokus. The SudokuSolver does not take guesses, it only applies strategies to attempt to find all possible combinations. However, this means that if multiple solutions exist to a problem, none will be found.
 
-When the project is finished, I hope that the program is able to solve a sudoku without taking any guesses.
+## Basic usage
+
+An example of how to use the SudokuSolver can be found in the [main class](https://github.com/mdsimmo/SudokuSolver/blob/master/src/com/github/mdsimmo/sudokusolver/Main.java).
 
 ## Licence
 
