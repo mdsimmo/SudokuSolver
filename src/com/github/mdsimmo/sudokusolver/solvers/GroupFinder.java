@@ -22,7 +22,10 @@ public class GroupFinder implements Solver {
     }
 
     boolean apply( Grid grid ) {
-        final int size = grid.size();
+        int size = grid.size();
+        for ( Cell cell : grid )
+            if ( cell.isSolved() )
+                size--;
         int[] numbers = new int[size];
         for ( int i = 0; i < size; i++ )
             numbers[i] = i+1;
